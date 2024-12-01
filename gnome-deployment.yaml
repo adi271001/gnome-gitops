@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gnome-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gnome-app
+  template:
+    metadata:
+      labels:
+        app: gnome-app
+    spec:
+      containers:
+      - name: gnome-app
+        image: <your-dockerhub-username>/gnome-system-monitor:latest
+        ports:
+        - containerPort: 80
